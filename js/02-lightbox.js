@@ -25,12 +25,7 @@ const allGaleryItems = galleryItems.map(createGalleryItemMarkup).join('');
 
 container.insertAdjacentHTML('afterbegin', allGaleryItems);
 
-container.addEventListener('click', onOpenModal);
-
-function onOpenModal(event) {
-  event.preventDefault();
-  const lightBox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
-}
+const lightBox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
