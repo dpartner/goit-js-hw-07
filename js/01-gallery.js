@@ -39,13 +39,19 @@ function onOpenModal(event) {
 `,
     {
       onShow: modal => {
-        document.addEventListener('keydown', event => {
-          if (event.code === 'Escape') {
-            modal.close();
-          }
-        });
+        window.addEventListener('keydown', escapeKeyCloseModal);
+      },
+      onClose: modal => {
+        window.removeEventListener('keydown', escapeKeyCloseModal);
       },
     }
   );
+
+  function escapeKeyCloseModal(event) {
+    if (event.code === 'Escape') {
+      modal.close();
+    }
+  }
+
   modal.show();
 }
